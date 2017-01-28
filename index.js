@@ -1,19 +1,29 @@
-function bumpCounter() {}
+function bumpCounter() {
+  var counter = 0
+
+  function addBump() {
+    return counter++
+  }
+
+  function getBumps() {
+    return counter
+  }
+
+  return {
+    addBump,
+    getBumps
+  }
+
+}
 
 
-function addBump() {}
+function createAnimal(animalType) {
 
+  return function (deadlyDevice) {
+    return { animalType, deadlyDevice }
+  }
+}
 
-function getBumps() {}
-
-
-function createAnimal() {}
-
-
-function sharkCreator() {}
-
-
-function sharkWithFrickinLaserbeam() {}
-
-
-function sharkWithFrickinCannon() {}
+var sharkCreator = createAnimal('Shark')
+var sharkWithFrickinLaserbeam = sharkCreator('Laserbeam')
+var sharkWithFrickinCannon = sharkCreator('Cannon')
